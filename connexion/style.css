@@ -1,142 +1,152 @@
-@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
-
-* {
-  box-sizing: border-box;
-}
-
+/*
+    default element
+*/
 body {
   margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: #707070;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+    container & global élément of container
+*/
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+#connexion,
+#inscription {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #7aacef;
 }
 
-.container {
-  position: relative;
-  width: 420px;
-  min-height: 490px;
-  height: auto;
-  max-height: 520px;
-  background-color: #f0f6fb;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-size: 18px;
-  font-family: "Quicksand", sans-serif;
+.title {
+  font-size: 2.7em;
+  margin: 0;
 }
-
-.logo {
-  position: absolute;
-  top: 2%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  box-shadow: 0 5px 5px #ccc;
-  font-size: 1.8em;
-  background-color: #6ba1f9;
-  color: #f0f6fb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tab-body {
-  position: relative;
-  display: none;
-
-  height: auto;
-  max-height: 320px;
-  padding: 15% 5%;
-  margin-top: 20%;
-  background-color: #fff;
-  color: #82ade6de;
-  box-shadow: 0px 5px 10px #7c8395;
-  border-radius: 30px;
-  font-size: 1rem;
-}
-.tab-body.active {
-  display: block;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #82ade6de;
-  padding: 1.8% 0;
+.paragraphe {
   margin: 20px 0;
 }
-
-.row .input {
-  width: 90%;
-  border: none;
-  outline: none;
-  color: #82ade6de;
-  font-weight: 550;
+.paragraphe {
+  opacity: 0.81;
+  font-size: 18px;
 }
-.input::placeholder {
-  color: #82ade6ad;
-}
-
-.link {
-  display: inline-block;
-  font-size: 0.8em;
-  width: 100%;
-  text-decoration: none;
-  color: #2b384f;
-  text-align: right;
-}
-.link:hover {
-  text-decoration: underline;
-}
-
-.btn {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 50%);
-  width: 120px;
-  height: 45px;
-  border-radius: 50px;
-  background-color: #6ba1f9;
-  border: none;
-  outline: none;
+.btn-link,
+input[type="submit"] {
+  display: block;
+  line-height: 60px;
+  border: 1px solid #fff;
+  width: 230px;
+  height: 60px;
+  text-align: center;
+  border-radius: 9999px;
   color: #fff;
+  font-size: 20px;
+  font-weight: lighter;
+  transition: 0.2s;
   cursor: pointer;
 }
+/*
+    connexion
+*/
+#connexion {
+  background: #198ef5;
+  text-align: center;
+}
 
-.tab-footer {
+#connexion .title {
+  color: #fff;
+}
+
+#connexion .paragraphe {
+  color: #fff;
+}
+#connexion .connexion:hover {
+  background-color: #fff;
+  color: #198ef5;
+}
+/*
+    inscription
+*/
+
+#inscription .title {
+  color: #198ef5;
+}
+
+.group-form {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.group-form > div {
   position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  height: 30px;
-  display: flex;
+  width: 40px;
+  height: 40px;
+  top: 2px;
+  left: 3px;
 }
 
-.tab-link {
-  text-decoration: none;
-  color: #6ba1f9ee;
-  margin: 0 3%;
+.group-form .icon-user {
+  background: url(../images/user.png);
+  background-size: cover;
+  background-position: center;
 }
 
-.tab-link.active {
-  font-weight: bold;
+.group-form .icon-mail {
+  background: url(../images/mail.png);
+  background-size: cover;
+  background-position: center;
 }
 
-@media screen and (max-width: 520px) {
+.group-form .icon-password {
+  background: url(../images/password.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.group-form input[type="text"],
+.group-form input[type="email"],
+.group-form input[type="password"] {
+  width: 250px;
+  height: 40px;
+  border: 1px solid #707070;
+  border-radius: 9999px;
+  padding-left: 15px;
+  outline: none;
+  font-size: 16px;
+}
+
+#inscription .inscription {
+  background: #198ef5;
+  margin: 0 auto;
+}
+
+#inscription .inscription:hover {
+  background: #fff;
+  color: #198ef5;
+  border: 1px solid #198ef5;
+}
+
+@media (min-width: 992px) {
   .container {
-    width: 80%;
-    min-width: 380px;
-    min-height: 490px;
+    flex-direction: row;
   }
-  .tab-body {
-    width: 100%;
-    padding: 15% 5%;
-    margin-top: 25%;
-    max-height: 420px;
+
+  #connexion {
+    width: 45%;
+    text-align: center;
+  }
+
+  #inscription {
+    width: 55%;
   }
 }
