@@ -1,27 +1,27 @@
 /*
     default element
 */
-body {
+body{
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #707070;
 }
 
-a {
+a{
   text-decoration: none;
 }
 
 /*
-    container & global élément of container
+  container & global élément of container
 */
-.container {
+.container{
   display: flex;
   flex-direction: column;
+  background-image: url("https://url-de-votre-image.com");
 }
 
-#connexion,
-#inscription {
+#connexion, #inscription{
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,22 +29,21 @@ a {
   align-items: center;
 }
 
-.title {
+.title{
   font-size: 2.7em;
   margin: 0;
 }
-.paragraphe {
+.paragraphe{
   margin: 20px 0;
 }
-.paragraphe {
+.paragraphe{
   opacity: 0.81;
   font-size: 18px;
 }
-.btn-link,
-input[type="submit"] {
+.btn-link, input[type="submit"]{
   display: block;
   line-height: 60px;
-  border: 1px solid #fff;
+  border: 1px solid  #fff;
   width: 230px;
   height: 60px;
   text-align: center;
@@ -52,62 +51,66 @@ input[type="submit"] {
   color: #fff;
   font-size: 20px;
   font-weight: lighter;
-  transition: 0.2s;
+  transition: .2s;
   cursor: pointer;
 }
 /*
-    connexion
+  connexion
 */
-#connexion {
-  background: #198ef5;
+#connexion{
+  background: #198EF5;
   text-align: center;
 }
 
-#connexion .title {
+#connexion .title{
   color: #fff;
 }
 
-#connexion .paragraphe {
+#connexion .paragraphe{
   color: #fff;
+  
 }
-#connexion .connexion:hover {
+#connexion .connexion:hover{
   background-color: #fff;
-  color: #198ef5;
+  color: #198EF5;
 }
 /*
-    inscription
+  inscription
 */
 
-#inscription .title {
-  color: #198ef5;
+#inscription .title{
+  color: #198EF5;
 }
 
-.group-form {
+
+.group-form{
   margin-bottom: 10px;
   position: relative;
 }
 
-.group-form > div {
+.group-form > div{
   position: absolute;
   width: 40px;
-  height: 40px;
+  height: 40px; 
   top: 2px;
   left: 3px;
+  
 }
 
-.group-form .icon-user {
+.group-form .icon-user{
   background: url(../images/user.png);
   background-size: cover;
   background-position: center;
+  
 }
 
-.group-form .icon-mail {
+.group-form .icon-mail{
   background: url(../images/mail.png);
   background-size: cover;
   background-position: center;
 }
 
-.group-form .icon-password {
+.group-form .icon-password{
   background: url(../images/password.png);
   background-size: cover;
   background-position: center;
@@ -115,7 +118,7 @@ input[type="submit"] {
 
 .group-form input[type="text"],
 .group-form input[type="email"],
-.group-form input[type="password"] {
+.group-form input[type="password"]{
   width: 250px;
   height: 40px;
   border: 1px solid #707070;
@@ -125,28 +128,28 @@ input[type="submit"] {
   font-size: 16px;
 }
 
-#inscription .inscription {
+#inscription .inscription{
   background: #198ef5;
   margin: 0 auto;
 }
 
-#inscription .inscription:hover {
+#inscription .inscription:hover{
   background: #fff;
-  color: #198ef5;
-  border: 1px solid #198ef5;
+  color: #198EF5;
+  border: 1px solid #198EF5;
 }
 
-@media (min-width: 992px) {
-  .container {
-    flex-direction: row;
+@media (min-width: 992px){
+  .container{
+      flex-direction: row;
   }
 
-  #connexion {
-    width: 45%;
-    text-align: center;
+  #connexion{
+      width: 45%;
+      text-align: center;
   }
 
-  #inscription {
-    width: 55%;
+  #inscription{
+      width: 55%;
   }
 }
