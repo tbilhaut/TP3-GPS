@@ -1,5 +1,5 @@
 <?php
-    $ipserver="192.168.64.86";
+    $ipserver="192.168.64.157";
     $basename="Base_PROJET";
     $login="root";
     $password="root";

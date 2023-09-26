@@ -12,6 +12,40 @@ session_start();
   <title>Mon site - Connexion</title>
 </head>
 
+<?php
+ try{
+  include ("bdd/bdd.php"); // Connexion à la BDD
+
+  if(isset($_POST['connexion'])) {
+    $requete1 = "SELECT * FROM `User` WHERE `login`='".$_POST['login']."'AND `password`= SHA2('".$_POST['password']."', 256);";
+    $resultat=$pdo->query($requete1);
+
+    if($resultat->rowCount()>0) {
+      $utilisateur = $resultat->fetch();
+      $_SESSION['id_utilisateur'] = $utilisateur['id'];
+      header('location: connexion/hph.php');
+    }
+  }
+
+  if(isset($_POST['inscription'])){ 
+
+  if($_POST['logini'] != ''){
+
+  if($_POST['confpass'] == $_POST['passi']){
+  
+        $requete2 = "INSERT INTO `User`(`login`, `password`) VALUES ('".$_POST['logini']."',SHA2('".$_POST['passi']."', 256))";
+        echo "";
+        $resultat2=$pdo->query($requete2);
+      }
+    }
+  }
+}
+catch(Exception $error) {
+$error->getMessage();
+}
+
+?>
+
 <body>
   <div class="container">
     <div id="connexion">
@@ -21,17 +55,17 @@ session_start();
           <p class="paragraphe">
             Veuillez remplir tous les champs
           </p>
-          <form class="formulaire">
+          <form class="formulaire" method="post">
             <div class="group-form">
-              <input type="text" placeholder="Nom">
+              <input type="text" name="login" placeholder="login">
               <div class="icon-user"></div>
             </div>
             <div class="group-form">
-              <input type="password" placeholder="password">
+              <input type="password" name="password" placeholder="password">
               <div class="icon-password"></div>
             </div>
             <div class="group-form">
-              <a href="#" class="btn-link connexion">Se connecter</a>
+              <input type="submit" class="connexion" connexion="connexion" value="Connexion">
             </div>
           </form>
           </div>
@@ -41,21 +75,21 @@ session_start();
       <p class="paragraphe">
         Veuillez remplir tous les champs
       </p>
-      <form class="formulaire">
+      <form class="formulaire" method="post">
         <div class="group-form">
-          <input type="text" placeholder="Nom">
+          <input type="text" name="logini" placeholder="login">
           <div class="icon-user"></div>
         </div>
         <div class="group-form">
-          <input type="password" placeholder="password">
+          <input type="password" name="passi" placeholder="password">
           <div class="icon-password"></div>
         </div>
         <div class="group-form">
-          <input type="password" placeholder="retype password">
+          <input type="password" name="confpass" placeholder="retype password">
           <div class="icon-password"></div>
         </div>
         <div class="group-form">
-          <input type="submit" class="inscription" value="S'inscrire">
+          <input type="submit" class="inscription" name="inscription" value="S'inscrire">
         </div>
       </form>
     </div>
