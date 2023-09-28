@@ -14,9 +14,9 @@ Elle contient actuellement 1 Base.
 
   Base_PROJET	
       └── User
-           ├── id : int (clé primaire unique)
-	         ├── login : varchar(200)
-   	       └── password : varchar (200)
+           ├── id : int (clé primaire unique)\n
+	   ├── login : varchar(200)\n
+   	   └── password : varchar (200)\n
 
     
 
