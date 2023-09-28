@@ -7,6 +7,7 @@ L'accès au projet se faire par 2 IP :
 
 
   // LA BASE DE DONNÉES PHPMYADMIN \\
+
 Son accès se fait via le couple id/mdp : root/root
 
 Elle contient actuellement 1 Base.
