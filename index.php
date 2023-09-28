@@ -18,12 +18,13 @@ session_start();
 
   if(isset($_POST['connexion'])) {
     $requete1 = "SELECT * FROM `User` WHERE `login`='".$_POST['login']."'AND `password`= SHA2('".$_POST['password']."', 256);";
-    $resultat=$pdo->query($requete1);
+    $resultat1=$pdo->query($requete1);
 
-    if($resultat->rowCount()>0) {
-      $utilisateur = $resultat->fetch();
+    if($resultat1->rowCount()>0) {
+      $utilisateur = $resultat1->fetch();
       $_SESSION['id_utilisateur'] = $utilisateur['id'];
-      header('location: connexion/hph.php');
+      echo"Salut connard";
+     header('location: acceuil/acceuil.php');
     }
   }
 
@@ -65,7 +66,7 @@ $error->getMessage();
               <div class="icon-password"></div>
             </div>
             <div class="group-form">
-              <input type="submit" class="connexion" connexion="connexion" value="Connexion">
+              <input type="submit" class="connexion" name="connexion" value="Connexion">
             </div>
           </form>
           </div>
