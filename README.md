@@ -12,10 +12,10 @@ Son accès se fait via le couple id/mdp : root/root
 Elle contient actuellement 1 Base.
 
   * BASE "Base_PROJET"
-    > Table "User"
-      -> "id" clé primaire unique
-      -> "login" varchar (200)
-      -> "password" varchar (200) 
+      Table "User"
+        > "id" clé primaire unique
+        > "login" varchar (200)
+        > "password" varchar (200) 
     
 
 Elle contient actuellement 1 User ajouté.
