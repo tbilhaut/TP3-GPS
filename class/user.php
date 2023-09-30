@@ -1,7 +1,7 @@
 <?php
 
-include ("../bdd/bdd.php"), // On inclus le fichier de connexion à la BDD
-
+// include ("../bdd/bdd.php"); // On inclus le fichier de connexion à la BDD
+include ("././bdd/bdd.php");
 
 class User { // Classe User
     private $id;
@@ -31,7 +31,7 @@ class User { // Classe User
     }
 
 
-    // -- Méthodes : fonctions pour interragir avec l'utilisateur --
+    // -- Méthodes : fonctions pour interagir avec l'utilisateur --
 
 
     // Fonction de connexion à la base de données
@@ -44,6 +44,27 @@ class User { // Classe User
             return "Erreur de connexion à la base de données : " . $e->getMessage();
         }
     }
+
+    // Fonction d'inscription d'un nouvel utilisateur
+    public function Inscription($login, $passwd) {
+        // Vérifier si l'utilisateur avec le même login existe déjà
+        $sql = "SELECT * FROM User WHERE login = '" . $login . "'";
+        $result = $GLOBALS["pdo"]->query($sql);
+    
+        if ($result && $result->rowCount() > 0) {
+            return "Un utilisateur avec le même login existe déjà.";
+        }
+    
+        // Insérer le nouvel utilisateur dans la base de données
+        $sql = "INSERT INTO User (login, passwd) VALUES ('$login', '$passwd')";
+            
+        if ($GLOBALS["pdo"]->exec($sql) !== false) {
+            return true; // Inscription réussie
+        } else {
+            return "Erreur lors de l'inscription.";
+        }
+    }
+    
 
     // Fonction d'autorisation d'accès au site
     public function Autorisation($login, $passwd) {
@@ -97,10 +118,8 @@ class User { // Classe User
         // Détruire la session en cours
         session_unset();
         session_destroy();
-    
-            return true; // Déconnexion réussie
-        }
+        return true; // Déconnexion réussie
+    }
 }
-
 
 ?>
