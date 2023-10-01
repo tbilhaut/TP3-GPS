@@ -29,32 +29,32 @@ Base_PROJET
 ## 3° ORGANISATION DU CODE
 
 * *index.php* -> page servant de page d'inscription / connexion à l'utilisateur
-* *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code
+* *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
 
 
-* __./image__  
+* __./image__    
     logo_boussole.png -> petite image png servant de logo au site
 
 
-* __./accueil__ 
+* __./accueil__  
     *accueil.php* -> page sur laquelle tombe l'utilisateur une fois connecté, elle sert de page principale accueillant tous les liens
                    vers les autres pages et fonctionnalités du site
 
 
-* __./bdd__
+* __./bdd__  
     *bdd.php* -> code permettant une connexion à la BDD, utilisée dans les différentes pages
     *user.sql* -> un export clean de la base afin que vous puissiez l'importer dans PhpMyAdmin
 
 
-* __./class__
+* __./class__  
     *user.php* -> code pour la déclaration de la Class "User", contenant les fonctions principales pour gérer celui-ci
 
 
-* __./compte__
+* __./compte__  
     *compte.php* -> page pour que l'utilisateur ait accès aux propriétés de son compte et puisse les modifier (comme le passwd)
 
 
-* __./connexion__
+* __./connexion__  
     *connexion.css* -> code utilisé pour mettre en forme l'index
 
 
