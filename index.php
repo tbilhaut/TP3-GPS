@@ -46,7 +46,7 @@ if (isset($_POST['inscription'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="connexion/connexion.css">
+    <link rel="stylesheet" href="connexion/index.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
     <title>PROJET - Connexion</title>
     <link rel="Icone Boussole" href="img/boussole_logo.png" type="image/x-icon">
