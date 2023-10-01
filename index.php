@@ -13,16 +13,14 @@ if (isset($_POST['connexion'])) {
 
     // Vérifier l'authentification
     if (User::Autorisation($login, $passwd)) {
-        // Utiliser la fonction getUserIdByLogin pour obtenir l'ID
-        $id_utilisateur = User::getUserIdByLogin($login);
+        // Stocker l'ID de l'user dans la session
+        $_SESSION['id_utilisateur'] = $login; 
 
-        // Stocker l'ID de l'utilisateur dans la session
-        $_SESSION['id_utilisateur'] = $id_utilisateur;
-
-        // Rediriger l'utilisateur vers la page d'accueil
+        // Redirection de l'user vers la page d'accueil
         header('location: accueil/acceuil.php');
-        exit(); // Terminer le script après la redirection
-    } else {
+        exit(); 
+    } 
+    else {
         $message = "Erreur d'authentification. Veuillez réessayer.";
     }
 }
@@ -50,11 +48,13 @@ if (isset($_POST['inscription'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="connexion/connexion.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
-    <title>Mon site - Connexion</title>
-    <link rel="Icône Boussole" href="img/boussole_logo.png" type="image/x-icon">
+    <title>PROJET - Connexion</title>
+    <link rel="Icone Boussole" href="img/boussole_logo.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
+
+    <!-- Formulaire de connexion -->
         <div id="connexion">
             <h1 class="title">Connexion</h1>
             <p class="paragraphe">
@@ -74,10 +74,12 @@ if (isset($_POST['inscription'])) {
                 </div>
             </form>
         </div>
+
+        <!-- Formulaire d'inscription -->
         <div id="inscription">
             <h1 class="title">Créer un compte</h1>
             <p class="paragraphe">
-                Veuillez remplir tous les champs
+                Veuillez remplir tous les champs.
             </p>
             <form class="formulaire" method="post">
                 <div class="group-form">
@@ -105,5 +107,6 @@ if (isset($_POST['inscription'])) {
         echo "<p>$message</p>";
     }
     ?>
+
 </body>
 </html>

@@ -4,7 +4,7 @@
 include ("././bdd/bdd.php");
 
 
-class User { // Classe User
+class User { // Création de la Classe User
     private $id;
     private $login;
     private $passwd;
@@ -67,28 +67,15 @@ class User { // Classe User
         }
     }
 
-    public function getUserIdByLogin($login) {
-        $sql = "SELECT id FROM User WHERE login = '$login'";
-        $result = $GLOBALS["pdo"]->query($sql);
     
-        if ($result && $result->rowCount() > 0) {
-            $row = $result->fetch(PDO::FETCH_ASSOC);
-            return $row['id'];
-        } else {
-            return false;
-        }
-    }
-    
-    
-
     // 3) Autorisation d'accès au site 
     public function Autorisation($login, $passwd) {
-        // Recherchez l'utilisateur dans la BDD avec le login
+        // Recherche de l'user dans la BDD avec le login
         $sql = "SELECT * FROM User WHERE login = '" . $login . "'";
         $result = $GLOBALS["pdo"]->query($sql);
 
         if ($result && $result->rowCount() > 0) {
-            // L'utilisateur existe, vérifiez le mot de passe
+            // L'user existe, vérifie le mot de passe
             $sql = "SELECT * FROM User WHERE login = '" . $login . "' AND passwd = '" . $passwd . "'";
             $result = $GLOBALS["pdo"]->query($sql);
 
@@ -102,17 +89,17 @@ class User { // Classe User
 
     // 4) Suprimer un compte
     public function Suppression_user($login, $passwd) {
-        // On vérifie que l'utilisateur existe
+        // On vérifie que l'user existe
         $sql = "SELECT * FROM User WHERE login = '" . $login . "'";
         $result = $GLOBALS["pdo"]->query($sql);
     
         if ($result && $result->rowCount() > 0) {
-            // L'utilisateur existe, vérifier le passwd
+            // L'user existe, vérifier le passwd
             $sql = "SELECT * FROM User WHERE login = '" . $login . "' AND passwd = '" . $passwd . "'";
             $result = $GLOBALS["pdo"]->query($sql);
     
             if ($result && $result->rowCount() > 0) {
-                // Le login et le mot de passe sont corrects, supprime le compte
+                // Le login et le mot de passe sont corrects, on supprime le compte
                 $sql = "DELETE FROM User WHERE login = '" . $login . "'";
                 $result = $GLOBALS["pdo"]->exec($sql);
     
@@ -130,7 +117,7 @@ class User { // Classe User
     }
 
 
-    // 5) Déconnecter l'utilisateur
+    // 5) Déconnecter l'user
     public function Deconnexion() {
         session_unset();
         session_destroy();

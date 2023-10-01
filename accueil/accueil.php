@@ -37,7 +37,7 @@ if (isset($_POST['compte'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="accueil.css">
-    <title>Accueil</title>
+    <title>PROJET - Acceuil</title>
     <link rel="Icône Boussole" href="../img/boussole_logo.png" type="image/x-icon">
 </head>
 <body>

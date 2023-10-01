@@ -1,6 +1,6 @@
 <?php
 
-$ipserver = "192.168.1.56";
+$ipserver = "192.168.1.56"; // A modifier si vous travaillez chez vous
 $bdd = "Base_PROJET";
 $login = "root";
 $password = "root";
