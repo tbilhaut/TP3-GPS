@@ -43,7 +43,7 @@ Base_PROJET
 
 
 * __./bdd__  
-    *bdd.php* -> code permettant une connexion à la BDD, utilisée dans les différentes pages
+    *bdd.php* -> code permettant une connexion à la BDD, utilisée dans les différentes pages  
     *user.sql* -> un export clean de la base afin que vous puissiez l'importer dans PhpMyAdmin
 
 
