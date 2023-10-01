@@ -16,7 +16,7 @@ Le projet peux être accessible via 2 IP :
 
 Actuellement, la BDD contient 1 base.
 
-Base_PROJET	
+Base_PROJET  	
       └── User  
         ├── id : int (clé primaire)  
         ├── login : varchar(200)  
@@ -32,7 +32,8 @@ Base_PROJET
 * *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code
 
 
-* __./image__ -> fichier contenant (pour le moment) une seule image servant pour le logo du site
+* __./image__  
+    logo_boussole.png -> petite image png servant de logo au site
 
 
 * __./accueil__ 
