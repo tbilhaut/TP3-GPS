@@ -1,26 +1,28 @@
-    /// 1° LES IP ///
+#PROJET GPS
+
+##1° LES IP
 
 Le projet peux être accessible via 2 IP : 
-    - 192.168.65.186, l'adresse sur laquelle vous pouvez accéder au site.
-    - 192.168.64.157, l'adresse sur laquelle vous pouvez accéder à la BDD.
+    - __192.168.65.186__, l'adresse sur laquelle vous pouvez accéder au site.
+    - __192.168.64.157__, l'adresse sur laquelle vous pouvez accéder à la BDD.
 
 
 
 
-    /// 2° LA BASE DE DONNÉES ///
+##2° LA BASE DE DONNÉES
 
 Actuellement, la BDD contient 1 base.
 
 Base_PROJET	
-      └── User
-        ├── id : int (clé primaire)
-        ├── login : varchar(200)
-        └── password : varchar (200)
+      └── User  
+        ├── id : int (clé primaire)  
+        ├── login : varchar(200)  
+        └── password : varchar (200)  
 
 
 
 
-    /// 3° ORGANISATION DU CODE ///
+##3° ORGANISATION DU CODE
 
 index.php -> page servant de page d'inscription / connexion à l'utilisateur
 readme.md -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code
