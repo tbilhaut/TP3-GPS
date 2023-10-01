@@ -4,8 +4,7 @@
 
 ## 1° LES IP
 
-Le projet peux être accessible via 2 IP :    
-
+Le projet peux être accessible via 2 IP :  
     - __192.168.65.186__, l'adresse sur laquelle vous pouvez accéder au site.  
     - __192.168.64.157__, l'adresse sur laquelle vous pouvez accéder à la BDD.
 
@@ -17,7 +16,7 @@ Le projet peux être accessible via 2 IP :
 
 Actuellement, la BDD contient 1 base. Vous pouvez y accéder grâce au couple d'identifiants root/root.
 
-Base_PROJET    	
+Base_PROJET     	
       └── User  
         ├── id : int (clé primaire)  
         ├── login : varchar(200)  
