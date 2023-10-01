@@ -25,28 +25,28 @@ Base_PROJET
 index.php -> page servant de page d'inscription / connexion à l'utilisateur
 readme.md -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code
 
-./image -> fichier contenant (pour le moment) une seule image servant pour le logo du site
+> ./image -> fichier contenant (pour le moment) une seule image servant pour le logo du site
 
 
-./accueil 
+> ./accueil 
     accueil.php -> page sur laquelle tombe l'utilisateur une fois connecté, elle sert de page principale accueillant tous les liens
                    vers les autres pages et fonctionnalités du site
 
 
-./bdd
+> ./bdd
     bdd.php -> code permettant une connexion à la BDD, utilisée dans les différentes pages
     user.sql -> un export clean de la base afin que vous puissiez l'importer dans PhpMyAdmin
 
 
-./class
+> ./class
     user.php -> code pour la déclaration de la Class "User", contenant les fonctions principales pour gérer celui-ci
 
 
-./compte
+> ./compte
     compte.php -> page pour que l'utilisateur ait accès aux propriétés de son compte et puisse les modifier (comme le passwd)
 
 
-./connexion 
+> ./connexion 
     connexion.css -> code utilisé pour mettre en forme l'index
 
 
