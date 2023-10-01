@@ -3,6 +3,7 @@
 // include ("../bdd/bdd.php"); // On inclus le fichier de connexion à la BDD
 include ("././bdd/bdd.php");
 
+
 class User { // Classe User
     private $id;
     private $login;
@@ -34,10 +35,10 @@ class User { // Classe User
     // -- Méthodes : fonctions pour interagir avec l'utilisateur --
 
 
-    // Fonction de connexion à la base de données
+    // 1) Connexion à la BDD
     public function Connexion($user, $passwd, $bdd) {
         try {
-            // Tentez de vous connecter à la base de données
+            // Tente la connexion à la BDD
             $pdo = new PDO('mysql:host=' . $GLOBALS["ipserver"] . ';dbname=' . $bdd, $user, $passwd);
             return true; // Connexion réussie
         } catch (PDOException $e) {
@@ -45,7 +46,8 @@ class User { // Classe User
         }
     }
 
-    // Fonction d'inscription d'un nouvel utilisateur
+
+    // 2) Inscription d'un nouvel utilisateur
     public function Inscription($login, $passwd) {
         // Vérifier si l'utilisateur avec le même login existe déjà
         $sql = "SELECT * FROM User WHERE login = '" . $login . "'";
@@ -55,7 +57,7 @@ class User { // Classe User
             return "Un utilisateur avec le même login existe déjà.";
         }
     
-        // Insérer le nouvel utilisateur dans la base de données
+        // Insérer le nouvel utilisateur dans la BDD
         $sql = "INSERT INTO User (login, passwd) VALUES ('$login', '$passwd')";
             
         if ($GLOBALS["pdo"]->exec($sql) !== false) {
@@ -64,11 +66,24 @@ class User { // Classe User
             return "Erreur lors de l'inscription.";
         }
     }
+
+    public function getUserIdByLogin($login) {
+        $sql = "SELECT id FROM User WHERE login = '$login'";
+        $result = $GLOBALS["pdo"]->query($sql);
+    
+        if ($result && $result->rowCount() > 0) {
+            $row = $result->fetch(PDO::FETCH_ASSOC);
+            return $row['id'];
+        } else {
+            return false;
+        }
+    }
+    
     
 
-    // Fonction d'autorisation d'accès au site
+    // 3) Autorisation d'accès au site 
     public function Autorisation($login, $passwd) {
-        // Recherchez l'utilisateur dans la base de données par login
+        // Recherchez l'utilisateur dans la BDD avec le login
         $sql = "SELECT * FROM User WHERE login = '" . $login . "'";
         $result = $GLOBALS["pdo"]->query($sql);
 
@@ -85,19 +100,19 @@ class User { // Classe User
     }
 
 
-    // Suprimer un compte
+    // 4) Suprimer un compte
     public function Suppression_user($login, $passwd) {
         // On vérifie que l'utilisateur existe
         $sql = "SELECT * FROM User WHERE login = '" . $login . "'";
         $result = $GLOBALS["pdo"]->query($sql);
     
         if ($result && $result->rowCount() > 0) {
-            // L'utilisateur existe, vérifier le password
+            // L'utilisateur existe, vérifier le passwd
             $sql = "SELECT * FROM User WHERE login = '" . $login . "' AND passwd = '" . $passwd . "'";
             $result = $GLOBALS["pdo"]->query($sql);
     
             if ($result && $result->rowCount() > 0) {
-                // Le login et le mot de passe sont corrects, supprimez le compte
+                // Le login et le mot de passe sont corrects, supprime le compte
                 $sql = "DELETE FROM User WHERE login = '" . $login . "'";
                 $result = $GLOBALS["pdo"]->exec($sql);
     
@@ -114,8 +129,9 @@ class User { // Classe User
         }
     }
 
+
+    // 5) Déconnecter l'utilisateur
     public function Deconnexion() {
-        // Détruire la session en cours
         session_unset();
         session_destroy();
         return true; // Déconnexion réussie

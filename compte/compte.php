@@ -1,7 +1,8 @@
 <?php
+
     session_start();
     include ("../bdd/bdd.php");
-    include("../fonction/fonction.php");
+    include("../class/user.php");
     Deconnexion();
     
     $id_utilisateur = $_SESSION['id_utilisateur'];
@@ -12,12 +13,13 @@
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="compte.css">
+    <link rel="Icône Boussole" href="../img/boussole_logo.png" type="image/x-icon">
 </head>
 
 <body>

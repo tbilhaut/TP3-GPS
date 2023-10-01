@@ -12,12 +12,12 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-
-/*
+/* // Ancienne version
     $ipserver="192.168.1.56";
     $basename="Base_PROJET";
     $login="root";
     $password="root";
     $GLOBALS["pdo"] = new PDO('mysql:host='.$ipserver.';dbname='.$basename.'',$login,$password);
 */
+
 ?>

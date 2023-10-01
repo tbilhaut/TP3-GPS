@@ -15,6 +15,7 @@ a{
 /*
   container & global élément of container
 */
+
 .container{
   display: flex;
   flex-direction: column;
@@ -33,13 +34,16 @@ a{
   font-size: 2.7em;
   margin: 0;
 }
+
 .paragraphe{
   margin: 20px 0;
 }
+
 .paragraphe{
   opacity: 0.81;
   font-size: 18px;
 }
+
 .btn-link, input[type="submit"]{
   display: block;
   line-height: 60px;
@@ -68,12 +72,21 @@ a{
 
 #connexion .paragraphe{
   color: #fff;
-  
 }
+
+#connexion .connexion{
+  background: #fff;
+  color:#198ef5;
+  margin: 0 auto;
+}
+
 #connexion .connexion:hover{
-  background-color: #fff;
-  color: #198EF5;
+  background: #198ef5;
+  color: #fff;
+  border: 1px solid #fff;
 }
+
+
 /*
   inscription
 */
