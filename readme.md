@@ -21,7 +21,7 @@ Base_PROJET
       └── User  
         ├── id : int (clé primaire)  
         ├── login : varchar(200)  
-        └── password : varchar (200)  
+        └── passwd : varchar (200)  
 
 
 -----------------
@@ -38,8 +38,7 @@ Base_PROJET
 
 
 * __./accueil__  
-    *accueil.php* -> page sur laquelle tombe l'utilisateur une fois connecté, elle sert de page principale accueillant tous les liens
-                   vers les autres pages et fonctionnalités du site
+    *accueil.php* -> page sur laquelle tombe l'utilisateur une fois connecté, elle sert de page principale accueillant tous les liens vers les autres pages et fonctionnalités du site
 
 
 * __./bdd__  
