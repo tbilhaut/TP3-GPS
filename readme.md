@@ -64,7 +64,7 @@ Base_PROJET
 
 
 
-*index.php* -> page servant de page d'inscription / connexion à l'utilisateur
+*index.php* -> page servant de page d'inscription / connexion à l'utilisateur  
 *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
 
 
