@@ -17,7 +17,7 @@ if (isset($_POST['connexion'])) {
         $_SESSION['id_utilisateur'] = $login; 
 
         // Redirection de l'user vers la page d'accueil
-        header('location: accueil/acceuil.php');
+        header('location: accueil/accueil.php');
         exit(); 
     } 
     else {
