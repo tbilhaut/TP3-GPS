@@ -7,6 +7,29 @@ include("class/user.php");
 
 $message; // Variable utilisée en cas d'erreur(s)
 
+
+/*if (isset($_POST['connexion'])) {
+    $login = $_POST['login'];
+    $passwd = $_POST['passwd'];
+
+    // Créez une instance de la classe User
+    $user = new User(null, $login, $passwd);
+
+    // Appelez la fonction Connexion
+    $result = $user->Connexion($GLOBALS["user"], $GLOBALS["passwd"], $GLOBALS["bdd"]);
+
+    if ($result === true) {
+        // Stocker l'ID de l'utilisateur dans la session
+        $_SESSION['id_utilisateur'] = $login;
+
+        // Redirection de l'utilisateur vers la page d'accueil
+        header('location: accueil/accueil.php');
+        exit();
+    } else {
+        $message = "Erreur de connexion : " . $result;
+    }
+}*/
+
 if (isset($_POST['connexion'])) {
     $login = $_POST['login'];
     $passwd = $_POST['passwd'];

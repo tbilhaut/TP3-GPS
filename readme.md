@@ -29,13 +29,6 @@ Base_PROJET
 
 ## 3° ORGANISATION DU CODE
 
-* *index.php* -> page servant de page d'inscription / connexion à l'utilisateur
-* *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
-
-
-* __./image__    
-    logo_boussole.png -> petite image png servant de logo au site
-
 
 * __./accueil__  
     *accueil.php* -> page sur laquelle tombe l'utilisateur une fois connecté, elle sert de page principale accueillant tous les liens vers les autres pages et fonctionnalités du site
@@ -56,6 +49,37 @@ Base_PROJET
 
 * __./connexion__  
     *connexion.css* -> code utilisé pour mettre en forme l'index
+
+
+* __./connexion__  
+    *connexion.css* -> code utilisé pour mettre en forme l'index
+
+
+* __./documentation__  
+    *cahier_test_projetgps.docx* -> document contenant le cahier de test du projet
+
+
+* __./img__    
+    logo_boussole.png -> petite image png servant de logo au site
+
+
+
+*index.php* -> page servant de page d'inscription / connexion à l'utilisateur
+*readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
