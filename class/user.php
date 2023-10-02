@@ -58,7 +58,7 @@ class User { // Création de la Classe User
         }
     
         // Insérer le nouvel utilisateur dans la BDD
-        $sql = "INSERT INTO User (login, passwd) VALUES ('$login', SHA2('$passwd', 256)";
+        $sql = "INSERT INTO User (login, passwd) VALUES ('$login', '$passwd')";
             
         if ($GLOBALS["pdo"]->exec($sql) !== false) {
             return true; // Inscription réussie
@@ -76,7 +76,7 @@ class User { // Création de la Classe User
 
         if ($result && $result->rowCount() > 0) {
             // L'user existe, vérifie le mot de passe
-            $sql = "SELECT * FROM User WHERE login = '" . $login . "' AND passwd = SHA2 ('$passwd', 256)";
+            $sql = "SELECT * FROM User WHERE login = '" . $login . "' AND passwd = '" . $passwd . "'";
             $result = $GLOBALS["pdo"]->query($sql);
 
             if ($result && $result->rowCount() > 0) {
