@@ -52,7 +52,8 @@ if (!isset($_SESSION['id_utilisateur'])) {
         <label for="new_password">New Password:</label>
         <input type="password" id="new_password" name="new_password">
       </div>
-      <button type="submit" class="update-profile-btn">Update Profile</button>
+      <input type="submit" class="update-profile-btn" name="changpasswd" value="changement password">
+      <input type="submit" class="update-profile-btn" name="supprimer" value="supprimer compte">
     </form>
     <?php
     if (isset($errorMessage)) {

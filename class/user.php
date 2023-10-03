@@ -93,14 +93,9 @@ class User { // Création de la Classe User
         $sql = "SELECT * FROM User WHERE login = '" . $login . "'";
         $result = $GLOBALS["pdo"]->query($sql);
     
-        if ($result && $result->rowCount() > 0) {
-            // L'user existe, vérifier le passwd
-            $sql = "SELECT * FROM User WHERE login = '" . $login . "' AND passwd = '" . $passwd . "'";
-            $result = $GLOBALS["pdo"]->query($sql);
-    
             if ($result && $result->rowCount() > 0) {
                 // Le login et le mot de passe sont corrects, on supprime le compte
-                $sql = "DELETE FROM User WHERE login = '" . $login . "'";
+                $sql = "DELETE FROM User WHERE login = '" . $login . "' AND passwd ='". $passwd ."'";
                 $result = $GLOBALS["pdo"]->exec($sql);
     
                 if ($result !== false) {
@@ -111,9 +106,7 @@ class User { // Création de la Classe User
             } else {
                 return false; // Mot de passe incorrect
             }
-        } else {
-            return false; // Utilisateur non trouvé avec le login spécifié
-        }
+        
     }
 
 
