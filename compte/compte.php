@@ -3,7 +3,6 @@
     session_start();
     include ("../bdd/bdd.php");
     include("../class/user.php");
-    Deconnexion();
     
     $id_utilisateur = $_SESSION['id_utilisateur'];
     if (!isset($_SESSION['id_utilisateur'])) // Vérification si l'user est bien connecté
@@ -29,19 +28,16 @@
     </nav>
   </header>
   <main>
-    <section class="account-management">
-      <h1>Account Management</h1>
-      <div class="profile-details">
-        <h2>Profile Details</h2>
-        <div class="profile-detail-row">
-          <label for="first-name">login:</label>
-          <span id="first-name">John</span>
-        </div>
-        <div class="profile-detail-row">
-          <label for="last-name">password:</label>
-          <span id="last-name">Doe</span>
-        </div>
-        <button class="update-profile-btn">Update Profile</button>
-      </div>
+  <form id="profile-form">
+  <div class="profile-detail-row">
+    <label for="login">Login:</label>
+    <input type="text" id="login" name="login" value="John">
+  </div>
+  <div class="profile-detail-row">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" value="Doe">
+  </div>
+  <button type="submit" class="update-profile-btn">Update Profile</button>
+</form>
 </body>
 </html>
