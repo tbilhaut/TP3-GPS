@@ -2,11 +2,13 @@
 
 ![Petit meme](https://i.imgflip.com/1n8nsf.jpg)
 
-## 1° LES IP
+## 1° LES ACCÈS
 
 Le projet peut être accessible via 2 IP :  
     - __192.168.65.186__, l'adresse sur laquelle vous pouvez accéder au site.  
     - __192.168.64.157__, l'adresse sur laquelle vous pouvez accéder à la BDD.
+
+Un partage Samba existe et est joignable au lecteur suivant : \\192.168.65.186\PartageApache 
 
 
 -----------------
