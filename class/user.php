@@ -123,6 +123,8 @@ class User { // Création de la Classe User
         session_destroy();
         return true; // Déconnexion réussie
     }
+
+    
 }
 
 ?>
