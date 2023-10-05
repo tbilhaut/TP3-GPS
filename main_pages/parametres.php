@@ -1,8 +1,7 @@
 <?php
-
 session_start();
-include("bdd/bdd.php");
-include("class/user.php"); 
+include("../bdd/bdd.php");
+include("../class/user.php"); 
 
 // $id_utilisateur = $_SESSION['id_utilisateur'];
 $login = $_SESSION['id_utilisateur'];
@@ -13,35 +12,16 @@ $isAdmin = $_SESSION['isAdmin'];
 
 // Vérifier si l'utilisateur est connecté via la session
 if (!isset($_SESSION['id_utilisateur'])) {
-    header('location: index.php');
+    header('location: ../index.php');
     exit;
-}
-
-// Vérifier si l'utilisateur a un compte administrateur (isAdmin = 1)
-if ($_SESSION['isAdmin'] != 1) {
-    header('location: 404.php'); // Rediriger vers la page d'erreur 404.php
-    exit;
-}
-
-if (isset($_POST['supprimer'])) {
-    $loginToDelete = $_POST['loginToDelete'];
-    User::SupprimerUser($loginToDelete);
-}
-
-if (isset($_POST['modifier'])) {
-    $loginToModify = $_POST['loginToModify'];
-    $newLogin = $_POST['newLogin'];
-    $newPasswd = $_POST['newPasswd'];
-    User::ModifierUser($loginToModify, $newLogin, $newPasswd);
 }
 
 // Si l'utilisateur souhaite se déconnecter
 if (isset($_POST['deconnexion'])) {
     User::Deconnexion(); // Appel de la fonction "Deconnexion" dans la Class User
-    header('location: index.php'); // Redirection vers la page de connexion
+    header('location: ../index.php'); // Redirection vers la page de connexion
     exit;
 }
-
 ?>
 
 
@@ -55,19 +35,16 @@ if (isset($_POST['deconnexion'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GPS  - Espace Admin</title>
+    <title>Paramètres de votre compte</title>
 
-    <!-- Custom fonts for this template -->
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -79,7 +56,7 @@ if (isset($_POST['deconnexion'])) {
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="acceuil.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -114,8 +91,8 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="../extend_pages/buttons.html">Buttons</a>
+                        <a class="collapse-item" href="../extend_pages/cards.html">Cards</a>
                     </div>
                 </div>
             </li>
@@ -131,10 +108,10 @@ if (isset($_POST['deconnexion'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-other.html">Other</a>
                     </div>
                 </div>
             </li>
@@ -148,38 +125,39 @@ if (isset($_POST['deconnexion'])) {
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="blank.html">Exemple</a>
-                        <a class="collapse-item" href="blank.html">Exemple</a>
-                        <a class="collapse-item" href="blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.php">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="../extend_pages/charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
-            <!-- Nav Item - Admin -->
-            <li class="nav-item active">
-                <a class="nav-link" href="admin.php">
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="../extend_pages/tables.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Espace Admin</span></a>
+                    <span>Tables</span></a>
             </li>
 
             <!-- Divider -->
@@ -203,15 +181,21 @@ if (isset($_POST['deconnexion'])) {
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
-
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -242,19 +226,8 @@ if (isset($_POST['deconnexion'])) {
                         </li>
                     </ul>
                 </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Mon espace Administrateur</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
+                                    <!-- DataTales Example -->
+                                    <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Base_PROJET</h6>
                         </div>
@@ -320,7 +293,13 @@ if (isset($_POST['deconnexion'])) {
         </div>
     </div>
 </div>
-                </div>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -358,13 +337,6 @@ if (isset($_POST['deconnexion'])) {
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

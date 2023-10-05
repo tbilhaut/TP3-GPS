@@ -15,9 +15,10 @@ if (isset($_POST['connexion'])) {
         $_SESSION['id_utilisateur'] = $login;
 
         // Redirection de l'utilisateur vers la page d'accueil
-        header('location: accueil.php');
+        header('location: main_pages/accueil.php');
         exit();
-    } else {
+    } 
+    else {
         $message = "Erreur d'authentification. Veuillez réessayer.";
     }
 }
@@ -67,7 +68,6 @@ if (isset($_POST['connexion'])) {
                                 <h1 class="h4 text-gray-900 mb-4">Bienvenue !</h1>
                             </div>
 
-
                             <!-- Ajout des balises form pour le formulaire -->
 
                             <form class="user" method="post">
@@ -92,7 +92,7 @@ if (isset($_POST['connexion'])) {
 
                             <!-- Si l'user souhaite s'inscrire, redirection -->
                             <div class="text-center">
-                                <a class="small" href="inscription.php">Pas encore inscrit ? C'est ici !</a>
+                                <a class="small" href="main_pages/inscription.php">Pas encore inscrit ? C'est ici !</a>
                             </div>
                         </div>
                     </div>
@@ -104,14 +104,14 @@ if (isset($_POST['connexion'])) {
 </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="assets/js/sb-admin-2.min.js"></script>
 
 </body>
 

@@ -1,7 +1,7 @@
 <?php
 
 // include ("../bdd/bdd.php"); // On inclus le fichier de connexion à la BDD
-include "bdd/bdd.php";
+include "../bdd/bdd.php";
 
 class User { // Création de la Classe User
     private $id;
@@ -182,6 +182,5 @@ class User { // Création de la Classe User
     }
     
 }
-
 
 ?>

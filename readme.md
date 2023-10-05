@@ -8,7 +8,7 @@ Le projet peut être accessible via 2 IP :
     - __192.168.65.186__, l'adresse sur laquelle vous pouvez accéder au site.  
     - __192.168.64.157__, l'adresse sur laquelle vous pouvez accéder à la BDD.
 
-Un partage Samba existe et est joignable au lecteur suivant : \\192.168.65.186\PartageApache 
+Un partage Samba existe et est joignable au lecteur suivant : \\192.168.65.186\PartageApache
 
 
 -----------------
@@ -22,9 +22,15 @@ Base_PROJET
       
       └── User  
         ├── id : int (clé primaire)  
-        ├── login : varchar(200)  
+        ├── login : varchar unique (200)  
         └── passwd : varchar (200)  
+        └── isAdmin : int (1)  
 
+Pour fonctionner, un utilisateur doit être ajouté à la base avec le nom "dudule", le password "root", le nom
+d'hôte à "%" et lui accorder tous les privilèges.
+
+Un export de cette base existe dans le fichier __./bdd/Base_PROJET.sql__, que vous pouvez importer directement dans PhpMyAdmin.  
+Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour mot de passe 'iamtheboss'.
 
 -----------------
 
@@ -32,42 +38,52 @@ Base_PROJET
 ## 3° ORGANISATION DU CODE
 
 
-* __./accueil__  
-    *accueil.php* -> page sur laquelle tombe l'utilisateur une fois connecté, elle sert de page principale accueillant tous les liens vers les autres pages et fonctionnalités du site
+* __./assets__  
+*(Ce fichier est consacré au css, js, etc... le plus utilisé par le Bootstrap. Il contient cette liste non exhaustive :)*
+    /css    
+    /img    
+    /js  
+    /scss    
+    /vendor    
+    .travis.yml  
+    gulpfile.js  
+    package-lock.json    
+    package.json  
 
 
 * __./bdd__  
-    *bdd.php* -> code permettant une connexion à la BDD, utilisée dans les différentes pages  
-    *user.sql* -> un export clean de la base afin que vous puissiez l'importer dans PhpMyAdmin
+    *bdd.php* -> code permettant une connexion à la BDD, utilisée dans les différentes pages    
+    *Base_PROJET.sql* -> un export clean de la base afin que vous puissiez l'importer dans PhpMyAdmin  
 
 
 * __./class__  
-    *user.php* -> code pour la déclaration de la Class "User", contenant les fonctions principales pour gérer celui-ci
-
-
-* __./compte__  
-    *compte.php* -> page pour que l'utilisateur ait accès aux propriétés de son compte et puisse les modifier (comme le passwd)
-
-
-* __./connexion__  
-    *connexion.css* -> code utilisé pour mettre en forme l'index
-
-
-* __./connexion__  
-    *connexion.css* -> code utilisé pour mettre en forme l'index
+    *user.php* -> code pour la déclaration de la Class "User", contenant les fonctions principales pour gérer celui-ci  
 
 
 * __./documentation__  
-    *cahier_test_projetgps.docx* -> document contenant le cahier de test du projet
+    *cahier_test_projetgps.docx* -> document contenant le cahier de test du projet  
 
 
-* __./img__    
-    connexion_image.png -> image affichée pour la page de connexion
-    inscription_image.png -> image affichée pour la page d'inscription
+* __./extend_pages__  
+    *blank.html* -> page vide qui peut vous servir de base  
+    *buttons.html* ->  
+    *cards.html* ->  
+    *charts.htmlm* ->  
+    *utilities-animation* ->  
+    *utilities-border.html* ->  
+    *utilities-color.html* ->  
+    *utilities-other.html* ->  
 
 
+* __./main_pages__  
+    *404.php* -> page utilisée quand on accède à une page non autorisée ou non trouvée     
+    *acceuil.php* -> page quand l'utilisateur se connecte et permet d'accéder aux autres pages    
+    *admin.php* -> page de gestion si l'user est Admin qui lui permet d'afficher et de modifier tous les utilisateurs    
+    *inscription.php* -> page d'inscription pour les nouveaux utilisateurs    
+    *parametres.php* -> page sur laquelle l'user connecté peut modifier ses informations de connexion  
 
-*index.php* -> page servant de page d'inscription / connexion à l'utilisateur  
+
+*index.php* -> page servant pour la connexion de l'utilisateur
 *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
 
 

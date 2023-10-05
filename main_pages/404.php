@@ -1,8 +1,7 @@
 <?php
-
 session_start();
-include("bdd/bdd.php");
-include("class/user.php"); 
+include("../bdd/bdd.php");
+include("../class/user.php"); 
 
 // $id_utilisateur = $_SESSION['id_utilisateur'];
 $login = $_SESSION['id_utilisateur'];
@@ -13,18 +12,16 @@ $isAdmin = $_SESSION['isAdmin'];
 
 // Vérifier si l'utilisateur est connecté via la session
 if (!isset($_SESSION['id_utilisateur'])) {
-    header('location: index.php');
+    header('location: ../index.php');
     exit;
 }
 
 // Si l'utilisateur souhaite se déconnecter
 if (isset($_POST['deconnexion'])) {
     User::Deconnexion(); // Appel de la fonction "Deconnexion" dans la Class User
-    header('location: index.php'); // Redirection vers la page de connexion
+    header('location: ../index.php'); // Redirection vers la page de connexion
     exit;
 }
-
-
 ?>
 
 
@@ -41,13 +38,13 @@ if (isset($_POST['deconnexion'])) {
     <title>GPS - ERROR 404</title>
 
     <!-- Custom fonts for this template-->
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets//vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../assets//css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -95,8 +92,8 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="../extend_pages/buttons.html">Buttons</a>
+                        <a class="collapse-item" href="../extend_pages/cards.html">Cards</a>
                     </div>
                 </div>
             </li>
@@ -112,10 +109,10 @@ if (isset($_POST['deconnexion'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-other.html">Other</a>
                     </div>
                 </div>
             </li>
@@ -139,27 +136,27 @@ if (isset($_POST['deconnexion'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="blank.html">Exemple</a>
-                        <a class="collapse-item" href="blank.html">Exemple</a>
-                        <a class="collapse-item" href="blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item active" href="404.php">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="../extend_pages/blank.html">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="../extend_pages/charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="../extend_pages/tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
@@ -228,7 +225,7 @@ if (isset($_POST['deconnexion'])) {
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $login; ?></span>
 
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="../assets//img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -290,14 +287,14 @@ if (isset($_POST['deconnexion'])) {
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets//vendor/jquery/jquery.min.js"></script>
+    <script src="../assets//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../assets//vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../assets//js/sb-admin-2.min.js"></script>
 
 </body>
 

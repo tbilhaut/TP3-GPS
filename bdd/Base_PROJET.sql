@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 05 oct. 2023 à 01:05
+-- Généré le : jeu. 05 oct. 2023 à 18:48
 -- Version du serveur : 10.5.18-MariaDB-0+deb11u1
 -- Version de PHP : 7.4.33
 
@@ -31,16 +31,15 @@ CREATE TABLE `User` (
   `id` int(11) NOT NULL,
   `login` varchar(200) NOT NULL,
   `passwd` varchar(200) NOT NULL,
-  `isAdmin` int(11) DEFAULT 0
+  `isAdlin` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `User`
 --
 
-INSERT INTO `User` (`id`, `login`, `passwd`, `isAdmin`) VALUES
-(1, 'zack', 'fair', 0),
-(2, 'test', '123', 1);
+INSERT INTO `User` (`id`, `login`, `passwd`, `isAdlin`) VALUES
+(1, 'root', 'iamtheboss', 1);
 
 --
 -- Index pour les tables déchargées
@@ -50,7 +49,8 @@ INSERT INTO `User` (`id`, `login`, `passwd`, `isAdmin`) VALUES
 -- Index pour la table `User`
 --
 ALTER TABLE `User`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -60,7 +60,7 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT pour la table `User`
 --
 ALTER TABLE `User`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
