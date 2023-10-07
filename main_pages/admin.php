@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../bdd/bdd.php");
-include("../class/user.php"); 
+include("../class/user.php");
 
 // $id_utilisateur = $_SESSION['id_utilisateur'];
 $login = $_SESSION['id_utilisateur'];
@@ -53,13 +53,11 @@ if (isset($_POST['deconnexion'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GPS  - Espace Admin</title>
+    <title>GPS - Espace Admin</title>
 
     <!-- Custom fonts for this template -->
     <link href="../assets//vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../assets//css/sb-admin-2.min.css" rel="stylesheet">
@@ -104,8 +102,7 @@ if (isset($_POST['deconnexion'])) {
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
@@ -120,13 +117,11 @@ if (isset($_POST['deconnexion'])) {
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Utilities</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="../extend_pages/utilities-color.html">Colors</a>
@@ -147,8 +142,7 @@ if (isset($_POST['deconnexion'])) {
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
@@ -213,18 +207,15 @@ if (isset($_POST['deconnexion'])) {
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 <!-- On affiche le nom de l'user -->
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $login; ?></span>
 
-                                <img class="img-profile rounded-circle"
-                                    src="../assets//img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="../assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="parametres.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Paramètres
@@ -248,8 +239,7 @@ if (isset($_POST['deconnexion'])) {
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Mon espace Administrateur</h1>
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -257,112 +247,112 @@ if (isset($_POST['deconnexion'])) {
                             <h6 class="m-0 font-weight-bold text-primary">Base_PROJET</h6>
                         </div>
                         <div class="card-body">
-                        <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Utilisateurs</h6>
-                    </div>
-                    <div class="card-body">
-                        <?php
-                        User::AfficherTableauUtilisateurs(); // Appel de la fonction pour afficher le tableau des utilisateurs
-                        ?>
-                    </div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Liste des Utilisateurs</h6>
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                    User::AfficherTableauUtilisateurs(); // Appel de la fonction pour afficher le tableau des utilisateurs
+                                    ?>
+                                </div>
 
-                    <!-- Modifier Modal -->
-<div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="modifierModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modifierModalLabel">Modifier l'utilisateur</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="admin.php">
-                    <div class="form-group">
-                        <label for="newLogin">Nouveau Login :</label>
-                        <input type="text" class="form-control" id="newLogin" name="newLogin" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="newPasswd">Nouveau Mot de passe :</label>
-                        <input type="password" class="form-control" id="newPasswd" name="newPasswd" required>
-                    </div>
-                    <input type="hidden" id="loginToModify" name="loginToModify">
-                    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                                <!-- Fenêtre pour modifier un user -->
+                                <div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="modifierModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modifierModalLabel">Modifier l'utilisateur</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="admin.php">
+                                                    <div class="form-group">
+                                                        <label for="newLogin">Nouveau Login :</label>
+                                                        <input type="text" class="form-control" id="newLogin" name="newLogin" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="newPasswd">Nouveau Mot de passe :</label>
+                                                        <input type="password" class="form-control" id="newPasswd" name="newPasswd" required>
+                                                    </div>
+                                                    <input type="hidden" id="loginToModify" name="loginToModify">
+                                                    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-<!-- Supprimer Modal -->
-<div class="modal fade" id="supprimerModal" tabindex="-1" role="dialog" aria-labelledby="supprimerModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="supprimerModalLabel">Confirmer la suppression</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Êtes-vous sûr de vouloir supprimer cet utilisateur ?
-            </div>
-            <div class="modal-footer">
-                <form method="post" action="admin.php">
-                    <input type="hidden" id="loginToDelete" name="loginToDelete">
-                    <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
-                </form>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-            </div>
-        </div>
-    </div>
-</div>
+                                <!-- Fenêtre pour supprimer un user -->
+                                <div class="modal fade" id="supprimerModal" tabindex="-1" role="dialog" aria-labelledby="supprimerModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="supprimerModalLabel">Confirmer la suppression</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Êtes-vous sûr de vouloir supprimer cet utilisateur ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form method="post" action="admin.php">
+                                                    <input type="hidden" id="loginToDelete" name="loginToDelete">
+                                                    <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
+                                                </form>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.container-fluid -->
+
+                    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; PROJET GPS</span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End of Footer -->
+
                 </div>
-
-                </div>
-                <!-- /.container-fluid -->
+                <!-- End of Content Wrapper -->
 
             </div>
-            <!-- End of Main Content -->
+            <!-- End of Page Wrapper -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; PROJET GPS</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
 
-        </div>
-        <!-- End of Content Wrapper -->
+            <!-- Bootstrap core JavaScript-->
+            <script src="../assets//vendor/jquery/jquery.min.js"></script>
+            <script src="../assets//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    </div>
-    <!-- End of Page Wrapper -->
+            <!-- Core plugin JavaScript-->
+            <script src="../assets//vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+            <!-- Custom scripts for all pages-->
+            <script src="../assets//js/sb-admin-2.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../assets//vendor/jquery/jquery.min.js"></script>
-    <script src="../assets//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="../assets//vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="../assets//vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../assets//vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../assets//js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../assets//vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets//vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../assets//js/demo/datatables-demo.js"></script>
+            <!-- Page level custom scripts -->
+            <script src="../assets//js/demo/datatables-demo.js"></script>
 
 </body>
 

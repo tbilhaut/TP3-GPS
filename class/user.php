@@ -1,8 +1,5 @@
 <?php
 
-// include ("../bdd/bdd.php"); // On inclus le fichier de connexion à la BDD
-include "../bdd/bdd.php";
-
 class User { // Création de la Classe User
     private $id;
     private $login;
@@ -142,7 +139,7 @@ class User { // Création de la Classe User
         }
     }
 
-    // 6) Afficher tous les users 
+    // 6) Afficher tous les users dans un tableau sur la page admin
     public function AfficherTableauUtilisateurs() {
         $sql = "SELECT login, passwd FROM User";
         $result = $GLOBALS["pdo"]->query($sql);
@@ -152,10 +149,10 @@ class User { // Création de la Classe User
             echo '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">';
             echo '<thead>';
             echo '<tr>';
-            echo '<th>Login</th>';
-            echo '<th>Password</th>';
-            echo '<th>Modifier</th>';
-            echo '<th>Supprimer</th>';
+            echo '<th>Login</th>'; // Login
+            echo '<th>Password</th>'; // Password
+            echo '<th></th>'; // Modifier
+            echo '<th></th>'; // Supprimer
             echo '</tr>';
             echo '</thead>';
             echo '<tfoot>';
@@ -182,5 +179,4 @@ class User { // Création de la Classe User
     }
     
 }
-
 ?>

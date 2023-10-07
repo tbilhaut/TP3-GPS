@@ -31,14 +31,14 @@ CREATE TABLE `User` (
   `id` int(11) NOT NULL,
   `login` varchar(200) NOT NULL,
   `passwd` varchar(200) NOT NULL,
-  `isAdlin` int(1) NOT NULL
+  `isAdmin` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `User`
 --
 
-INSERT INTO `User` (`id`, `login`, `passwd`, `isAdlin`) VALUES
+INSERT INTO `User` (`id`, `login`, `passwd`, `isAdmin`) VALUES
 (1, 'root', 'iamtheboss', 1);
 
 --
