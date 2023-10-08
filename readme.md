@@ -94,6 +94,8 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 *index.php* -> page servant pour la connexion de l'utilisateur  
 *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
 
+-----------------
+
 
 Pour toutes questions sur le projet (en ce qui concerne la première partie), n'hésitez pas à venir demander à Lucas, Théo, Jean ou Éloïse pour plus d'informations.  
 
