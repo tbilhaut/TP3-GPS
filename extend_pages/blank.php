@@ -35,14 +35,14 @@ if (isset($_POST['deconnexion'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GPS - ERROR 404</title>
+    <title>GPS - Blank</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../assets//vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../assets//css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -54,7 +54,7 @@ if (isset($_POST['deconnexion'])) {
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueil.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../main_pages/accueil.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -66,10 +66,9 @@ if (isset($_POST['deconnexion'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="accueil.php">
+                <a class="nav-link" href="../main_pages/accueil.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Accueil</span>
-                </a>
+                    <span>Accueil</span></a>
             </li>
 
             <!-- Divider -->
@@ -89,8 +88,8 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="../extend_pages/buttons.php">Buttons</a>
-                        <a class="collapse-item" href="../extend_pages/cards.php">Cards</a>
+                        <a class="collapse-item" href="buttons.php">Buttons</a>
+                        <a class="collapse-item" href="cards.php">Cards</a>
                     </div>
                 </div>
             </li>
@@ -104,10 +103,10 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="../extend_pages/utilities-color.php">Colors</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-border.php">Borders</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-animation.php">Animations</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-other.php">Other</a>
+                        <a class="collapse-item" href="utilities-color.php">Colors</a>
+                        <a class="collapse-item" href="utilities-border.php">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.php">Animations</a>
+                        <a class="collapse-item" href="utilities-other.php">Other</a>
                     </div>
                 </div>
             </li>
@@ -129,20 +128,20 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
-                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
-                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
+                        <a class="collapse-item" href="blank.php">Exemple</a>
+                        <a class="collapse-item" href="blank.php">Exemple</a>
+                        <a class="collapse-item" href="blank.php">Exemple</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item active" href="404.php">404 Page</a>
-                        <a class="collapse-item" href="../extend_pages/blank.php">Blank Page</a>
+                        <a class="collapse-item" href="../main_pages/404.php">404 Page</a>
+                        <a class="collapse-item active" href="blank.php">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="../extend_pages/charts.php">
+                <a class="nav-link" href="charts.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
@@ -155,7 +154,7 @@ if (isset($_POST['deconnexion'])) {
                         <span>Espace Admin</span>
                     </a>
                 </li>
-            <?php endif; ?>
+            <?php endif; ?>>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -190,25 +189,10 @@ if (isset($_POST['deconnexion'])) {
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                            <div class="topbar-divider d-none d-sm-block"></div>
 
-
-                        <!-- Nav Item - User Information -->
+                            <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
@@ -219,7 +203,7 @@ if (isset($_POST['deconnexion'])) {
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="parametres.php">
+                                <a class="dropdown-item" href="../main_pages/parametres.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Paramètres
                                 </a>
@@ -236,17 +220,11 @@ if (isset($_POST['deconnexion'])) {
                 </nav>
                 <!-- End of Topbar -->
 
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- 404 Error Text -->
-                    <div class="text-center">
-                        <div class="error mx-auto" data-text="404">404</div>
-                        <p class="lead text-gray-800 mb-5">Page Not Found</p>
-                        <p class="text-gray-500 mb-0">Page introuvable, ou vous avez tenté d'accéder à une page non autorisée...</p>
-                        <a href="accueil.php">&larr; Retour à l'accueil</a>
-                    </div>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -275,15 +253,16 @@ if (isset($_POST['deconnexion'])) {
         <i class="fas fa-angle-up"></i>
     </a>
 
+
     <!-- Bootstrap core JavaScript-->
-    <script src="../assets//vendor/jquery/jquery.min.js"></script>
-    <script src="../assets//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../assets//vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../assets//js/sb-admin-2.min.js"></script>
+    <script src="../assets/js/sb-admin-2.min.js"></script>
 
 </body>
 

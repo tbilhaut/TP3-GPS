@@ -61,18 +61,26 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 
 
 * __./documentation__  
-    *cahier_test_projetgps.docx* -> document contenant le cahier de test du projet  
+    *cahier_des_charges.docx* -> document qui contient le cahier des charges  
+    *cahier_test.docx* -> document contenant le cahier de test du projet  
+    *Class_User.png* -> image du diagramme de classe de la classse User  
+    *Diagramme_exigeances.png* -> image du diagramme des exigences du projet  
+    *GANTT.xlsx* -> document GANTT du projet  
+    *MCD_User.png* -> image du MCD de la classe User  
+    *TP1_MiseEnRoute.pdf* -> Rappel du projet avec le fichier pdf  
+    *Use_Case.png* -> image du use case du projet  
 
 
 * __./extend_pages__  
-    *blank.html* -> page vide qui peut vous servir de base  
-    *buttons.html* ->  
-    *cards.html* ->  
-    *charts.htmlm* ->  
-    *utilities-animation* ->  
-    *utilities-border.html* ->  
-    *utilities-color.html* ->  
-    *utilities-other.html* ->  
+*(Ce fichier est consacré aux pages founies avec le Bootstrap et qui pourrait peut-être vous être utiles, si besoin)*  
+    *blank.php*   
+    *buttons.php*    
+    *cards.php*     
+    *charts.php*      
+    *utilities-animation.php*     
+    *utilities-border.php*    
+    *utilities-color.php*    
+    *utilities-other.php*  
 
 
 * __./main_pages__  
@@ -83,7 +91,7 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
     *parametres.php* -> page sur laquelle l'user connecté peut modifier ses informations de connexion  
 
 
-*index.php* -> page servant pour la connexion de l'utilisateur
+*index.php* -> page servant pour la connexion de l'utilisateur  
 *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
 
 

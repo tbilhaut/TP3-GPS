@@ -16,6 +16,20 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit;
 }
 
+// Pour modifier ses informations de connexion
+if (isset($_POST['modifier'])) {
+    $loginToModify = $_POST['loginToModify'];
+    $newLogin = $_POST['newLogin'];
+    $newPasswd = $_POST['newPasswd'];
+    User::ModifierUser($loginToModify, $newLogin, $newPasswd);
+}
+
+// Pour supprimer son compte
+if (isset($_POST['supprimer'])) {
+    $loginToDelete = $_POST['loginToDelete'];
+    User::SupprimerUser($loginToDelete);
+}
+
 // Si l'utilisateur souhaite se déconnecter
 if (isset($_POST['deconnexion'])) {
     User::Deconnexion(); // Appel de la fonction "Deconnexion" dans la Class User
@@ -35,14 +49,14 @@ if (isset($_POST['deconnexion'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Paramètres de votre compte</title>
+    <title>GPS - Votre compte</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -88,8 +102,8 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="../extend_pages/buttons.html">Buttons</a>
-                        <a class="collapse-item" href="../extend_pages/cards.html">Cards</a>
+                        <a class="collapse-item" href="../extend_pages/buttons.php">Buttons</a>
+                        <a class="collapse-item" href="../extend_pages/cards.php">Cards</a>
                     </div>
                 </div>
             </li>
@@ -103,10 +117,10 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="../extend_pages/utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-other.html">Other</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-color.php">Colors</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-border.php">Borders</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-animation.php">Animations</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-other.php">Other</a>
                     </div>
                 </div>
             </li>
@@ -128,30 +142,33 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.php">404 Page</a>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Blank Page</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="../extend_pages/charts.html">
+                <a class="nav-link" href="../extend_pages/charts.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="../extend_pages/tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+            <!-- Condition pour afficher la partie "Nav Item - Admin" uniquement si isAdmin est égal à 1 -->
+            <?php if ($isAdmin == 1) : ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Espace Admin</span>
+                    </a>
+                </li>
+            <?php endif; ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -196,7 +213,7 @@ if (isset($_POST['deconnexion'])) {
                                 <!-- On affiche le nom de l'user -->
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $login; ?></span>
 
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="../assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -215,51 +232,54 @@ if (isset($_POST['deconnexion'])) {
                         </li>
                     </ul>
                 </nav>
+                <!-- End of Topbar -->
+
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Base_PROJET</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Gérer votre compte</h6>
+                        <p class="mb-4">Vous avez la possibilité via cette page de pouvoir gérer vos informations de connexion.</p>
                     </div>
                     <div class="card-body">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Utilisateurs</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Mon compte</h6>
                             </div>
                             <div class="card-body">
                                 <?php
-                                User::AfficherTableauUtilisateurs(); // Appel de la fonction pour afficher le tableau des utilisateurs
+                                User::AfficherSingleUser(); // Appel de la fonction pour afficher les informations de l'userconnecté
                                 ?>
                             </div>
 
-                            <!-- Modifier Modal -->
+                            <!-- Fenêtre pour modifier un user -->
                             <div class="modal fade" id="modifierModal" tabindex="-1" role="dialog" aria-labelledby="modifierModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="modifierModalLabel">Modifier l'utilisateur</h5>
+                                            <h5 class="modal-title" id="modifierModalLabel">Modifier ses informations</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="post" action="admin.php">
+                                            <form method="post" action="parametres.php">
                                                 <div class="form-group">
-                                                    <label for="newLogin">Nouveau Login :</label>
+                                                    <label for="newLogin">Votre nouveau Login :</label> <!-- Son nouveau Login -->
                                                     <input type="text" class="form-control" id="newLogin" name="newLogin" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="newPasswd">Nouveau Mot de passe :</label>
+                                                    <label for="newPasswd">Votre nouveau Mot de passe :</label> <!-- Son nouveau password -->
                                                     <input type="password" class="form-control" id="newPasswd" name="newPasswd" required>
                                                 </div>
                                                 <input type="hidden" id="loginToModify" name="loginToModify">
-                                                <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
+                                                <button type="submit" class="btn btn-primary" name="modifier">Modifier</button> <!-- Confirmation -->
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Supprimer Modal -->
+                            <!-- Fenêtre pour supprimer un user -->
                             <div class="modal fade" id="supprimerModal" tabindex="-1" role="dialog" aria-labelledby="supprimerModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -270,29 +290,19 @@ if (isset($_POST['deconnexion'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Êtes-vous sûr de vouloir supprimer cet utilisateur ?
+                                            Êtes-vous sûr de vouloir supprimer votre compte ?
                                         </div>
                                         <div class="modal-footer">
-                                            <form method="post" action="admin.php">
+                                            <form method="post" action="parametres.php">
                                                 <input type="hidden" id="loginToDelete" name="loginToDelete">
-                                                <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
+                                                <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button> <!-- Confirmation -->
                                             </form>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button> <!-- Annulation -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End of Topbar -->
-
-                            <!-- Begin Page Content -->
-                            <div class="container-fluid">
-
-                                <!-- Page Heading -->
-                                <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
-                            </div>
                             <!-- /.container-fluid -->
-
                         </div>
                         <!-- End of Main Content -->
 
@@ -318,14 +328,14 @@ if (isset($_POST['deconnexion'])) {
                 </a>
 
                 <!-- Bootstrap core JavaScript-->
-                <script src="vendor/jquery/jquery.min.js"></script>
-                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="../assets/vendor/jquery/jquery.min.js"></script>
+                <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
                 <!-- Core plugin JavaScript-->
-                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
                 <!-- Custom scripts for all pages-->
-                <script src="js/sb-admin-2.min.js"></script>
+                <script src="../assets/js/sb-admin-2.min.js"></script>
 
 </body>
 

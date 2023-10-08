@@ -22,16 +22,18 @@ if ($_SESSION['isAdmin'] != 1) {
     exit;
 }
 
-if (isset($_POST['supprimer'])) {
-    $loginToDelete = $_POST['loginToDelete'];
-    User::SupprimerUser($loginToDelete);
-}
-
+// Pour modifier les informations d'un user
 if (isset($_POST['modifier'])) {
     $loginToModify = $_POST['loginToModify'];
     $newLogin = $_POST['newLogin'];
     $newPasswd = $_POST['newPasswd'];
     User::ModifierUser($loginToModify, $newLogin, $newPasswd);
+}
+
+// Pour supprimer un user
+if (isset($_POST['supprimer'])) {
+    $loginToDelete = $_POST['loginToDelete'];
+    User::SupprimerUser($loginToDelete);
 }
 
 // Si l'utilisateur souhaite se déconnecter
@@ -109,8 +111,8 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="../extend_pages/buttons.html">Buttons</a>
-                        <a class="collapse-item" href="../extend_pages/cards.html">Cards</a>
+                        <a class="collapse-item" href="../extend_pages/buttons.php">Buttons</a>
+                        <a class="collapse-item" href="../extend_pages/cards.php">Cards</a>
                     </div>
                 </div>
             </li>
@@ -124,10 +126,10 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="../extend_pages/utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="../extend_pages/utilities-other.html">Other</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-color.php">Colors</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-border.php">Borders</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-animation.php">Animations</a>
+                        <a class="collapse-item" href="../extend_pages/utilities-other.php">Other</a>
                     </div>
                 </div>
             </li>
@@ -149,30 +151,33 @@ if (isset($_POST['deconnexion'])) {
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Exemple</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.php">404 Page</a>
-                        <a class="collapse-item" href="../extend_pages/blank.html">Blank Page</a>
+                        <a class="collapse-item" href="../extend_pages/blank.php">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="../extend_pages/charts.html">
+                <a class="nav-link" href="../extend_pages/charts.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
-            <!-- Nav Item - Admin -->
-            <li class="nav-item active">
-                <a class="nav-link" href="admin.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Espace Admin</span></a>
-            </li>
+            <!-- Condition pour afficher la partie "Nav Item - Admin" uniquement si isAdmin est égal à 1 -->
+            <?php if ($isAdmin == 1) : ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Espace Admin</span>
+                    </a>
+                </li>
+            <?php endif; ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -238,8 +243,7 @@ if (isset($_POST['deconnexion'])) {
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Mon espace Administrateur</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <p class="mb-4">Vous avez la possibilité via cette page de pouvoir gérer tous les utilisateurs inscrit sur votre site.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -270,15 +274,15 @@ if (isset($_POST['deconnexion'])) {
                                             <div class="modal-body">
                                                 <form method="post" action="admin.php">
                                                     <div class="form-group">
-                                                        <label for="newLogin">Nouveau Login :</label>
+                                                        <label for="newLogin">Nouveau Login :</label> <!-- Son nouveau Login -->
                                                         <input type="text" class="form-control" id="newLogin" name="newLogin" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="newPasswd">Nouveau Mot de passe :</label>
+                                                        <label for="newPasswd">Nouveau Mot de passe :</label> <!-- Son nouveau password -->
                                                         <input type="password" class="form-control" id="newPasswd" name="newPasswd" required>
                                                     </div>
                                                     <input type="hidden" id="loginToModify" name="loginToModify">
-                                                    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
+                                                    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button> <!-- Confirmation -->
                                                 </form>
                                             </div>
                                         </div>
@@ -301,18 +305,16 @@ if (isset($_POST['deconnexion'])) {
                                             <div class="modal-footer">
                                                 <form method="post" action="admin.php">
                                                     <input type="hidden" id="loginToDelete" name="loginToDelete">
-                                                    <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
+                                                    <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button> <!-- Confirmation -->
                                                 </form>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button> <!-- Annulation -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <!-- /.container-fluid -->
-
                     </div>
                     <!-- End of Main Content -->
 
