@@ -39,7 +39,7 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 
 
 * __./assets__  
-*(Ce fichier est consacré au css, js, etc... le plus utilisé par le Bootstrap. Il contient cette liste non exhaustive :)*
+*(Ce fichier est consacré au css, js, etc... utilisé par le Bootstrap. Il contient cette liste non exhaustive :)*  
     /css    
     /img    
     /js  
@@ -62,7 +62,7 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 
 * __./documentation__  
     *cahier_des_charges.docx* -> document qui contient le cahier des charges  
-    *cahier_test.docx* -> document contenant le cahier de test du projet  
+    *cahier_test.docx* -> document contenant le cahier de tests réalisés pour le projet  
     *Class_User.png* -> image du diagramme de classe de la classse User  
     *Diagramme_exigeances.png* -> image du diagramme des exigences du projet  
     *GANTT.xlsx* -> document GANTT du projet  
@@ -72,7 +72,7 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 
 
 * __./extend_pages__  
-*(Ce fichier est consacré aux pages founies avec le Bootstrap et qui pourrait peut-être vous être utiles, si besoin)*  
+*(Ce fichier est consacré aux pages founies avec le Bootstrap et qui pourrait peut-être vous être utiles, si besoin :)*  
     *blank.php*   
     *buttons.php*    
     *cards.php*     
@@ -93,6 +93,11 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 
 *index.php* -> page servant pour la connexion de l'utilisateur  
 *readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
+
+
+Pour toutes questions sur le projet (en ce qui concerne la première partie), n'hésitez pas à venir demander à Lucas, Théo, Jean ou Éloïse pour plus d'informations.  
+
+Enjoy ! 
 
 
 
