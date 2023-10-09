@@ -28,6 +28,8 @@ if (isset($_POST['modifier'])) {
 if (isset($_POST['supprimer'])) {
     $loginToDelete = $_POST['loginToDelete'];
     User::SupprimerUser($loginToDelete);
+    User::Deconnexion();
+
 }
 
 // Si l'utilisateur souhaite se déconnecter
@@ -327,15 +329,22 @@ if (isset($_POST['deconnexion'])) {
                     <i class="fas fa-angle-up"></i>
                 </a>
 
-                <!-- Bootstrap core JavaScript-->
-                <script src="../assets/vendor/jquery/jquery.min.js"></script>
-                <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                 <!-- Bootstrap core JavaScript-->
+            <script src="../assets//vendor/jquery/jquery.min.js"></script>
+            <script src="../assets//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Core plugin JavaScript-->
-                <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="../assets//vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="../assets/js/sb-admin-2.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="../assets//js/sb-admin-2.min.js"></script>
+
+            <!-- Page level plugins -->
+            <script src="../assets//vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="../assets//vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="../assets//js/demo/datatables-demo.js"></script>
 
 </body>
 

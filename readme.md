@@ -39,7 +39,7 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 
 
 * __./assets__  
-*(Ce fichier est consacré au css, js, etc... utilisé par le Bootstrap. Il contient cette liste non exhaustive :)*  
+*(Ce fichier est consacré au css, js, etc... utilisé par le Bootstrap. Il contient cette liste non exhaustive :)*    
     /css    
     /img    
     /js  
@@ -61,15 +61,20 @@ Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour 
 
 
 * __./documentation__  
-    *cahier_des_charges.docx* -> document qui contient le cahier des charges  
+    /img  
+        *Class_User.png* -> image du diagramme de classe de la classse User    
+        *Diagramme_exigences.png* -> image du diagramme des exigences du projet    
+        *MCD_User.png* -> image du MCD de la classe User  
+        *pageadministrateur.png* -> image de la page d'admin    
+        *pageconnexion.png* -> image de la page de connexion    
+        *pageinscription.png* -> image de la page d'inscription    
+        *Use_Case.png* -> image du use case du projet  
+    *cahier_des_charges.docx* -> document qui contient le cahier des charges    
     *cahier_test.docx* -> document contenant le cahier de tests réalisés pour le projet  
-    *Class_User.png* -> image du diagramme de classe de la classse User  
-    *Diagramme_exigeances.png* -> image du diagramme des exigences du projet  
     *GANTT.xlsx* -> document GANTT du projet  
-    *MCD_User.png* -> image du MCD de la classe User  
+    *presentation.pttx* -> présentation du pojet sous PowerPoint  
     *TP1_MiseEnRoute.pdf* -> Rappel du projet avec le fichier pdf  
-    *Use_Case.png* -> image du use case du projet  
-
+ 
 
 * __./extend_pages__  
 *(Ce fichier est consacré aux pages founies avec le Bootstrap et qui pourrait peut-être vous être utiles, si besoin :)*  
