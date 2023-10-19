@@ -43,10 +43,27 @@ if (isset($_POST['deconnexion'])) {
 
     <!-- Custom styles for this template-->
     <link href="../assets//css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Inclure les fichiers CSS de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Inclure votre code JavaScript Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- CSS personnalisé pour définir la taille de la carte -->
+    <style>
+        #map {
+            height: 320px; /* Ajustez la hauteur selon vos besoins */
+            width: 100%;   /* Ajustez la largeur selon vos besoins */
+        }
+    </style>
+    
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -333,7 +350,22 @@ if (isset($_POST['deconnexion'])) {
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+
+                                    <div id="map"></div>
+
+                                    <script>
+                                        // Votre code Leaflet
+                                        var map = L.map('map').setView([51.505, -0.09], 13);
+
+                                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                        }).addTo(map);
+
+                                        L.marker([51.5, -0.09]).addTo(map)
+                                            .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+                                            .openPopup();
+                                    </script>
+
                                     </div>
                                 </div>
                             </div>
@@ -563,6 +595,9 @@ if (isset($_POST['deconnexion'])) {
     <!-- Page level custom scripts -->
     <script src="../assets//js/demo/chart-area-demo.js"></script>
     <script src="../assets//js/demo/chart-pie-demo.js"></script>
+
+    <script src="../assets/js/demo/APImap.js"></script>
+    
 
 </body>
 

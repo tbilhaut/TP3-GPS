@@ -1,8 +1,8 @@
 <?php
 
-$ipserver = "192.168.64.157"; // A modifier si vous travaillez chez vous
-$bdd = "Base_PROJET";
-$login_bdd = "dudule";
+$ipserver = "192.168.65.9"; // A modifier si vous travaillez chez vous
+$bdd = "trgps";
+$login_bdd = "root";
 $password = "root";
 
 try {
