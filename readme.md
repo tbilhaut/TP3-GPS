@@ -5,10 +5,10 @@
 ## 1° LES ACCÈS
 
 Le projet peut être accessible via 2 IP :  
-    - __192.168.65.186__, l'adresse sur laquelle vous pouvez accéder au site.  
-    - __192.168.64.157__, l'adresse sur laquelle vous pouvez accéder à la BDD.
+    - __192.168.64.148__, l'adresse sur laquelle vous pouvez accéder au site.  
+    - __192.168.65.69__, l'adresse sur laquelle vous pouvez accéder à la BDD.
 
-Un partage Samba existe et est joignable au lecteur suivant : \\192.168.65.186\PartageApache
+Un partage Samba existe et est joignable au lecteur suivant : \\192.168.64.148\PartageApache
 
 
 -----------------
@@ -16,7 +16,7 @@ Un partage Samba existe et est joignable au lecteur suivant : \\192.168.65.186\P
 
 ## 2° LA BASE DE DONNÉES
 
-Actuellement, la BDD contient 1 base. Vous pouvez y accéder grâce au couple d'identifiants root/root.
+Vous pouvez y accéder grâce au couple d'identifiants root/root.
 
 Base_PROJET     	
       
@@ -26,12 +26,13 @@ Base_PROJET
         └── passwd : varchar (200)  
         └── isAdmin : int (1)  
 
-Pour fonctionner, un utilisateur doit être ajouté à la base avec le nom "dudule", le password "root", le nom
-d'hôte à "%" et lui accorder tous les privilèges.
+      └── GPSdata  
+        ├── id int(11) NOT NULL  
+        ├── longitude varchar(10) NOT NULL  
+        └── latitude varchar(10) NOT NULL  
+        └── heure float NOT NULL  
 
-Un export de cette base existe dans le fichier __./bdd/Base_PROJET.sql__, que vous pouvez importer directement dans PhpMyAdmin.  
-Tout est déjà configuré, est un Admin existe sous le nom de 'root' avec pour mot de passe 'iamtheboss'.
-
+       
 -----------------
 
 
