@@ -103,9 +103,7 @@ Base_PROJET
 -----------------
 
 
-Pour toutes questions sur le projet (en ce qui concerne la première partie), n'hésitez pas à venir demander à Lucas, Théo, Jean ou Éloïse pour plus d'informations.  
 
-Enjoy ! 
 
 
 
