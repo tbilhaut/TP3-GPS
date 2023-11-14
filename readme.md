@@ -92,7 +92,7 @@ Base_PROJET
 
 
 *index.php* -> page servant pour la connexion de l'utilisateur  
-*readme.md* -> ce même fichier que vous êtes en train de lire pour vous aider à comprendre le code  
+*readme.md*
 
 -----------------
 
