@@ -1,10 +1,6 @@
 <?php
 
 
-
-//test github
-
-
 session_start();
 include("../bdd/bdd.php");
 include("../class/user.php");
