@@ -298,34 +298,64 @@ if (isset($_POST['deconnexion'])) {
                                         let coordinatesArray = [];
                                         
 
-                                        function updateMap() {
-                                            // Make a fetch request to get updated data
-                                            fetch('http://192.168.64.148/projetgps/main_pages/data.php')
-                                                .then(response => response.json())
-                                                .then(data => {
-                                                    console.log('Received data:', data);
+                                        let lastLatLng;
+let totalDistance = 0;
+let distancePopup;
 
-                                                    // Update marker position
-                                                    L.marker([data.latitude, data.longitude]).addTo(map)
-                                                        .bindPopup('vous etes ici.')
-                                                        .openPopup();
+function updateMap() {
+    // Make a fetch request to get updated data
+    fetch('http://192.168.64.148/projetgps/main_pages/data.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Received data:', data);
 
-                                                    // Add the new coordinates to the array
-                                                    coordinatesArray.push([data.latitude, data.longitude]);
+            // Create a LatLng object for the new point
+            const newLatLng = L.latLng(data.latitude, data.longitude);
 
-                                                    // Clear existing polyline
-                                                    if (polyline) {
-                                                        map.removeLayer(polyline);
-                                                    }
+            // Update marker position
+            const marker = L.marker(newLatLng).addTo(map)
+                .bindPopup('vous etes ici.')
+                .openPopup();
 
-                                                    // Create a new polyline with all coordinates
-                                                    polyline = L.polyline(coordinatesArray, { color: 'blue', weight: 3, opacity: 0.7 }).addTo(map);
+            // Clear existing polyline
+            if (polyline) {
+                map.removeLayer(polyline);
+            }
 
-                                                    // Pan the map to the new location
-                                                    map.panTo([data.latitude, data.longitude]);
-                                                })
-                                                .catch(error => console.error('Error fetching data:', error));
-                                        }
+            // Add the new coordinates to the array
+            coordinatesArray.push([data.latitude, data.longitude]);
+
+            // Create a new polyline with all coordinates
+            polyline = L.polyline(coordinatesArray, { color: 'blue', weight: 3, opacity: 0.7 }).addTo(map);
+
+            // Pan the map to the new location
+            map.panTo([data.latitude, data.longitude]);
+
+            // Calculate distance and update popup
+            if (lastLatLng) {
+                const distance = lastLatLng.distanceTo(newLatLng) / 1000; // Convert to kilometers
+                totalDistance += distance;
+
+                // Update popup content
+                if (distancePopup) {
+                    distancePopup.setContent(`Total Distance: ${totalDistance.toFixed(2)} km`);
+                } else {
+                    // Create popup if it doesn't exist
+                    distancePopup = L.popup({
+                        closeButton: false,
+                        autoClose: false
+                    }).setLatLng(newLatLng)
+                        .setContent(`Total Distance: ${totalDistance.toFixed(2)} km`)
+                        .openOn(map);
+                }
+            }
+
+            // Update lastLatLng for the next iteration
+            lastLatLng = newLatLng;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
 
                                     // Uncomment the line below to refresh the map every 5 seconds
                                     setInterval(updateMap, 5000);
