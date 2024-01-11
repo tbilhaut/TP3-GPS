@@ -21,6 +21,7 @@ if (isset($_POST['connexion'])) {
     else {
         $message = "Erreur d'authentification. Veuillez réessayer.";
     }
+    //test hassan
 }
 ?>
 
