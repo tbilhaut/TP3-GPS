@@ -455,16 +455,9 @@ function updateMap() {
     <script src="../assets/js/demo/APImap.js"></script>
     
     <script>
-    // Créer une connexion WebSocket vers votre VM
-    const socket = new WebSocket('ws://192.168.65.9:3055');
-
-    // Gérer l'ouverture de la connexion WebSocket
-    socket.addEventListener('open', (event) => {
-        console.log('Connexion WebSocket établie');
-    });
-
     // Gérer la réception de données du serveur WebSocket
-    socket.addEventListener('message', (event) => {
+socket.addEventListener('message', (event) => {
+    try {
         // Les données du serveur sont disponibles dans event.data
         console.log('Données reçues du serveur:', event.data);
 
@@ -478,16 +471,11 @@ function updateMap() {
             // Mettre à jour la carte avec les nouvelles données
             updateMapWithData(latitude, longitude, heure);
         }
-    });
-
-    // Ajoutez cette fonction pour mettre à jour la carte avec les nouvelles données
-    function updateMapWithData(latitude, longitude, heure) {
-        // Mettez à jour la carte avec les nouvelles données
-        const newLatLng = L.latLng(latitude, longitude);
-        
-        // Notez que vous devez ajuster cette partie selon la bibliothèque de cartographie que vous utilisez (ici Leaflet)
-        map.setView(newLatLng, heure);
+    } catch (error) {
+        console.error('Erreur lors de la conversion des données JSON:', error);
     }
+});
+
 </script>
 </body>
 
