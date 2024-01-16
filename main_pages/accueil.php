@@ -61,6 +61,12 @@ if (isset($_POST['deconnexion'])) {
         }
     </style>
     
+ <!-- Ajouter ce script à votre page web -->
+
+
+
+
+
 </head>
 
 <body id="page-top">
@@ -241,6 +247,16 @@ if (isset($_POST['deconnexion'])) {
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Maps</h6>
+
+ <!-- test donner websocket -->
+ <h6 class="m-0 font-weight-bold text-primary" id="donneesServeur">Les données du serveur</h6>
+
+ <!-- test donner websocket -->
+
+
+
+
+
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -259,46 +275,60 @@ if (isset($_POST['deconnexion'])) {
                                     <div class="chart-area">
 
                                     <?php
-                                    $sql = "SELECT longitude, latitude, heure FROM GPSdata ORDER BY id DESC LIMIT 0, 1";
-                                    $result = $GLOBALS["pdo"]->query($sql);
+$sql = "SELECT longitude, latitude, heure FROM GPSdata ORDER BY id DESC LIMIT 0, 1";
+$result = $GLOBALS["pdo"]->query($sql);
 
-                                    $row = $result->fetch(PDO::FETCH_ASSOC);
+$row = $result->fetch(PDO::FETCH_ASSOC);
 
-                                    $longitude = $row['longitude'];
-                                    $latitude = $row['latitude'];
-                                    $heure = $row['heure'];
-                                    ?>
+$longitude = $row['longitude'];
+$latitude = $row['latitude'];
+$heure = $row['heure'];
 
-                                    <div id="map" style="height: 470px;"></div>
+// Créez un tableau associatif pour stocker les données
+$data = [
+    'latitude' => $latitude,
+    'longitude' => $longitude,
+    'heure' => $heure
+];
 
-                                    <script>
-                                        
-                                        
-                                        var map = L.map('map').setView([<?php echo $latitude; ?>, <?php echo $longitude; ?>], <?php echo $heure; ?>);
+// Convertissez le tableau en format JSON
+$jsonData = json_encode($data);
 
-                                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                        }).addTo(map);
-
-                                        
-                                                // Ajouter une polyline entre les deux marqueurs
-                                        var polyline = L.polyline([
-                                            [<?php echo $latitude; ?>, <?php echo $longitude; ?>],
-                                            
-                                        ]).addTo(map);
-
-                                        // Ajuster la vue de la carte pour inclure les deux marqueurs et la polyline
-                                        map.fitBounds([
-                                            [<?php echo min($latitude, $latitude2, $latitude3, $latitude4, $latitude5); ?>, <?php echo min($longitude, $longitude2, $longitude3, $longitude4, $longitude5); ?>],
-                                            [<?php echo max($latitude, $latitude2, $latitude3, $latitude4, $latitude5); ?>, <?php echo max($longitude, $longitude2, $longitude3, $longitude4, $longitude5); ?>]
-                                        ]);
+// Imprimez le texte JSON
+echo $jsonData;
+?>
 
 
-                                     // Define an array to store coordinates
-                                        let coordinatesArray = [];
-                                        
+    <div id="map" style="height: 470px;"></div>
 
-                                        let lastLatLng;
+    <script>
+        
+        
+        var map = L.map('map').setView([<?php echo $latitude; ?>, <?php echo $longitude; ?>], <?php echo $heure; ?>);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        
+                // Ajouter une polyline entre les deux marqueurs
+        var polyline = L.polyline([
+            [<?php echo $latitude; ?>, <?php echo $longitude; ?>],
+            
+        ]).addTo(map);
+
+        // Ajuster la vue de la carte pour inclure les deux marqueurs et la polyline
+        map.fitBounds([
+            [<?php echo min($latitude, $latitude2, $latitude3, $latitude4, $latitude5); ?>, <?php echo min($longitude, $longitude2, $longitude3, $longitude4, $longitude5); ?>],
+            [<?php echo max($latitude, $latitude2, $latitude3, $latitude4, $latitude5); ?>, <?php echo max($longitude, $longitude2, $longitude3, $longitude4, $longitude5); ?>]
+        ]);
+
+
+        // Define an array to store coordinates
+        let coordinatesArray = [];
+        
+
+        let lastLatLng;
 let totalDistance = 0;
 let distancePopup;
 
@@ -424,7 +454,31 @@ function updateMap() {
 
     <script src="../assets/js/demo/APImap.js"></script>
     
+    <script>
+        // Créer une connexion WebSocket vers votre VM
+        const socket = new WebSocket('ws://192.168.65.9:3055');
 
+        // Gérer l'ouverture de la connexion WebSocket
+        socket.addEventListener('open', (event) => {
+            console.log('Connexion WebSocket établie');
+        });
+
+        // Gérer la réception de données du serveur WebSocket
+        socket.addEventListener('message', (event) => {
+            // Les données du serveur sont disponibles dans event.data
+            console.log('Données reçues du serveur:', event.data);
+ 
+            // Convertissez les données JSON en objet JavaScript
+            const data = JSON.parse(event.data);
+
+            // Mettre à jour la carte avec les nouvelles données
+    updateMapWithData(data);
+});
+        // Ajoutez cette fonction pour mettre à jour la carte avec les nouvelles données
+function updateMapWithData(data) {
+    const newLatLng = L.latLng(data.latitude, data.longitude);
+}    
+    </script>
 </body>
 
 </html>
