@@ -455,30 +455,40 @@ function updateMap() {
     <script src="../assets/js/demo/APImap.js"></script>
     
     <script>
-        // Créer une connexion WebSocket vers votre VM
-        const socket = new WebSocket('ws://192.168.65.9:3055');
+    // Créer une connexion WebSocket vers votre VM
+    const socket = new WebSocket('ws://192.168.65.9:3055');
 
-        // Gérer l'ouverture de la connexion WebSocket
-        socket.addEventListener('open', (event) => {
-            console.log('Connexion WebSocket établie');
-        });
+    // Gérer l'ouverture de la connexion WebSocket
+    socket.addEventListener('open', (event) => {
+        console.log('Connexion WebSocket établie');
+    });
 
-        // Gérer la réception de données du serveur WebSocket
-        socket.addEventListener('message', (event) => {
-            // Les données du serveur sont disponibles dans event.data
-            console.log('Données reçues du serveur:', event.data);
- 
-            // Convertissez les données JSON en objet JavaScript
-            const data = JSON.parse(event.data);
+    // Gérer la réception de données du serveur WebSocket
+    socket.addEventListener('message', (event) => {
+        // Les données du serveur sont disponibles dans event.data
+        console.log('Données reçues du serveur:', event.data);
+
+        // Convertissez les données JSON en objet JavaScript
+        const serverData = JSON.parse(event.data);
+
+        // Vérifiez si les données GPS sont présentes dans l'objet reçu
+        if (serverData.gpsData) {
+            const { latitude, longitude, heure } = serverData.gpsData;
 
             // Mettre à jour la carte avec les nouvelles données
-    updateMapWithData(data);
-});
-        // Ajoutez cette fonction pour mettre à jour la carte avec les nouvelles données
-function updateMapWithData(data) {
-    const newLatLng = L.latLng(data.latitude, data.longitude);
-}    
-    </script>
+            updateMapWithData(latitude, longitude, heure);
+        }
+    });
+
+    // Ajoutez cette fonction pour mettre à jour la carte avec les nouvelles données
+    function updateMapWithData(latitude, longitude, heure) {
+        // Mettez à jour la carte avec les nouvelles données
+        const newLatLng = L.latLng(latitude, longitude);
+        
+        // Notez que vous devez ajuster cette partie selon la bibliothèque de cartographie que vous utilisez (ici Leaflet)
+        map.setView(newLatLng, heure);
+    }
+</script>
 </body>
 
 </html>
