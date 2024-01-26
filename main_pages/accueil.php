@@ -274,15 +274,27 @@ if (isset($_POST['deconnexion'])) {
                                 <div class="card-body" >
                                     <div class="chart-area">
 
+
+
+                                
+
+
+
+
+
+
+
                                     <?php
-$sql = "SELECT longitude, latitude, heure FROM GPSdata ORDER BY id DESC LIMIT 0, 1";
+/*$sql = "SELECT longitude, latitude, heure FROM GPSdata ORDER BY id DESC LIMIT 0, 1";
 $result = $GLOBALS["pdo"]->query($sql);
 
-$row = $result->fetch(PDO::FETCH_ASSOC);
+$row = $result->fetch(PDO::FETCH_ASSOC);*/
+$data_url = 'data.php';
+$data_content = file_get_contents($data_url);
 
-$longitude = $row['longitude'];
-$latitude = $row['latitude'];
-$heure = $row['heure'];
+$longitude = $data_content['longitude'];
+$latitude = $data_content['latitude'];
+$heure = $data_content['heure'];
 
 // Créez un tableau associatif pour stocker les données
 $data = [
@@ -454,29 +466,7 @@ function updateMap() {
 
     <script src="../assets/js/demo/APImap.js"></script>
     
-    <script>
-    // Gérer la réception de données du serveur WebSocket
-socket.addEventListener('message', (event) => {
-    try {
-        // Les données du serveur sont disponibles dans event.data
-        console.log('Données reçues du serveur:', event.data);
-
-        // Convertissez les données JSON en objet JavaScript
-        const serverData = JSON.parse(event.data);
-
-        // Vérifiez si les données GPS sont présentes dans l'objet reçu
-        if (serverData.gpsData) {
-            const { latitude, longitude, heure } = serverData.gpsData;
-
-            // Mettre à jour la carte avec les nouvelles données
-            updateMapWithData(latitude, longitude, heure);
-        }
-    } catch (error) {
-        console.error('Erreur lors de la conversion des données JSON:', error);
-    }
-});
-
-</script>
+    
 </body>
 
 </html>
