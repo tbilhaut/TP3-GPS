@@ -297,7 +297,7 @@ $latitude = $data_content['latitude'];
 $heure = $data_content['heure'];
 
 // Créez un tableau associatif pour stocker les données
-$data = [
+/*$data = [
     'latitude' => $latitude,
     'longitude' => $longitude,
     'heure' => $heure
@@ -308,7 +308,7 @@ $jsonData = json_encode($data);
 
 // Imprimez le texte JSON
 echo $jsonData;
-?>
+*/?>
 
 
     <div id="map" style="height: 470px;"></div>
